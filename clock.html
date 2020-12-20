@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clock</title>
+	<style>
+	body {
+		background-color: black;
+		color: cyan;
+	}
+	</style>
+</head>
+<body>
+	<br> <br>
+	
+    <h1 id="clock" style="text-align:center; font-size: 200px; margin-top: 0%;">00:00:00</h1>
+
+
+    <script>
+       setInterval(digitalClock,100)
+       function digitalClock() {
+           var dt= new Date();
+           var hours=dt.getHours();
+           var minutes=dt.getMinutes();
+           var seconds=dt.getSeconds();
+        
+           document.getElementById('clock').innerHTML=hours+":"+minutes+":"+seconds
+       var shift = "am";
+					if(hours > 12){
+						hours = hours-12; 
+					}
+					if(hours<10){
+						hours = "0"+hours;
+					}
+					if(minutes<10){
+ 
+						minutes = "0"+minutes;
+ 
+					}
+					if(seconds<10){
+ 
+						seconds = "0"+seconds;
+					}
+					if(dt.getHours()>12){
+						shift = "pm"
+					}else{
+						shift = "am"
+					}
+ 
+					document.getElementById('clock').innerHTML = hours+":"+minutes+":"+seconds+" "+shift
+				}
+    </script>
+</body>
+</html>
